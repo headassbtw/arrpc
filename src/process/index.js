@@ -41,6 +41,7 @@ export default class ProcessServer {
       for (let i = 1; i < splitPath.length; i++) {
         toCompare.push(splitPath.slice(-i).join('/'));
       }
+      toCompare.push(path);
 
       for (const p of toCompare.slice()) { // add more possible tweaked paths for less false negatives
         toCompare.push(p.replace('64', '')); // remove 64bit identifiers-ish
@@ -102,7 +103,7 @@ export default class ProcessServer {
       }
     }
 
-    // log(`finished scan in ${(performance.now() - startTime).toFixed(2)}ms`);
-    // process.stdout.write(`\r${' '.repeat(100)}\r[${rgb(88, 101, 242, 'arRPC')} > ${rgb(237, 66, 69, 'process')}] scanned (took ${(performance.now() - startTime).toFixed(2)}ms)`);
+     // log(`finished scan in ${(performance.now() - startTime).toFixed(2)}ms`);
+     // process.stdout.write(`\r${' '.repeat(100)}\r[${rgb(88, 101, 242, 'arRPC')} > ${rgb(237, 66, 69, 'process')}] scanned (took ${(performance.now() - startTime).toFixed(2)}ms)`);
   }
 }
